@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BELLI Store - شحن فري فاير و eFootball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        :root {
+            --primary: #8A2BE2; /* لون بنفسجي */
+            --secondary: #FF073A; /* لون أحمر */
+            --accent: #FFD700; /* لون ذهبي */
+            --dark: #1a0a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --free-fire: linear-gradient(135deg, #ff416c, #ff4b2b);
+            --efootball: linear-gradient(135deg, #1a2a6c, #0077b6);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a0a2e, #2d0b3a);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(26, 10, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--accent), white);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            font-size: 0.85rem;
+            color: #d0b3ff;
+            letter-spacing: 1px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .logo span i {
+            color: var(--accent);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .phone {
+            background: rgba(255, 7, 58, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 7, 58, 0.3);
+        }
+        
+        .phone:hover {
+            background: rgba(255, 7, 58, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        /* Notice Section */
+        .notice {
+            background: linear-gradient(90deg, rgba(255,7,58,0.2), rgba(138,43,226,0.2));
+            border: 1px solid rgba(255, 7, 58, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 30px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 7, 58, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 7, 58, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 7, 58, 0); }
+        }
+        
+        .notice h3 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Game Selection Section */
+        .game-selection {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .game-selection h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .game-selection h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .game-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            width: 280px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(138, 43, 226, 0.1);
+            z-index: 1;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.3);
+        }
+        
+        .game-card.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .game-card.free-fire.active {
+            background: var(--free-fire);
+        }
+        
+        .game-card.efootball.active {
+            background: var(--efootball);
+        }
+        
+        .game-card i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .game-card.free-fire i {
+            color: #ff416c;
+        }
+        
+        .game-card.efootball i {
+            color: #1a2a6c;
+        }
+        
+        .game-card.active.free-fire i {
+            color: white;
+        }
+        
+        .game-card.active.efootball i {
+            color: white;
+        }
+        
+        .game-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .game-card p {
+            color: #d0b3ff;
+            z-index: 2;
+            position: relative;
+        }
+        
+        /* ID Section */
+        .id-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: white;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .id-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: #d0b3ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group input {
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(255, 7, 58, 0.2);
+        }
+        
+        .form-group input::placeholder {
+            color: #a0a0c0;
+        }
+        
+        /* Products Section */
+        .products-section {
+            margin: 50px 0;
+            display: none;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.3);
+            border-color: var(--secondary);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: #1a0a2e;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .free-fire-bg {
+            background: var(--free-fire);
+        }
+        
+        .efootball-bg {
+            background: var(--efootball);
+        }
+        
+        .product-image i {
+            font-size: 4rem;
+            color: white;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .product-title i {
+            color: var(--accent);
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 15px 0;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .product-details {
+            color: #d0b3ff;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .add-to-cart {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .add-to-cart:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.5);
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 50px 0;
+            backdrop-filter: blur(5px);
+            display: none;
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .payment-method {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .payment-method i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .payment-method h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .account-info {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .account-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .account-detail:last-child {
+            border-bottom: none;
+        }
+        
+        .account-detail span:first-child {
+            color: #d0b3ff;
+        }
+        
+        .account-detail span:last-child {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .whatsapp-note {
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        
+        .whatsapp-note i {
+            color: #25D366;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Order Summary */
+        .order-summary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-item .label {
+            color: #d0b3ff;
+            font-weight: 600;
+        }
+        
+        .summary-item .value {
+            color: white;
+            font-weight: 700;
+        }
+        
+        .summary-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--accent);
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 5, 23, 0.95);
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .complete-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .complete-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 7, 58, 0.6);
+        }
+        
+        .copyright {
+            color: #a0a0c0;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+        
+        .support-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .game-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+            
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* WhatsApp Upload Notice */
+        .upload-notice {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px dashed #25D366;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .upload-notice p {
+            color: #25D366;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon floating">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>BELLI Store</h1>
+                        <span>
+                            <i class="fas fa-rocket"></i> سرعة 
+                            <i class="fas fa-lightbulb"></i> إبداع 
+                            <i class="fas fa-shield-alt"></i> ضمان
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="phone">
+                        <i class="fas fa-phone"></i>
+                        <span>0118545233</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Notice Section -->
+        <div class="notice">
+            <h3><i class="fas fa-shipping-fast"></i> خدمة الشحن يومياً الساعة 6 مساء بتوقيت السودان</h3>
+            <p>يتم شحن جميع الطلبات في الموعد المحدد مع ضمان السرعة والدقة</p>
+        </div>
+        
+        <!-- Game Selection Section -->
+        <section class="game-selection">
+            <h2>اختر اللعبة التي ترغب في شحنها</h2>
+            <div class="game-cards">
+                <div class="game-card free-fire" data-game="free-fire">
+                    <i class="fas fa-fire"></i>
+                    <h3>فري فاير</h3>
+                    <p>شحن الماس والعملات داخل اللعبة</p>
+                </div>
+                
+                <div class="game-card efootball" data-game="efootball">
+                    <i class="fas fa-futbol"></i>
+                    <h3>eFootball</h3>
+                    <p>شحن العملات والحسابات داخل اللعبة</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ID Section for Free Fire -->
+        <section class="id-section" id="free-fire-section">
+            <div class="section-title">
+                <h2>ادخل بيانات حساب فري فاير</h2>
+            </div>
+            
+            <div class="id-form">
+                <div class="form-group">
+                    <label for="player-id"><i class="fas fa-id-card"></i> ID الخاص بك</label>
+                    <input type="text" id="player-id" placeholder="أدخل ID الخاص بك في اللعبة">
+                </div>
+                
+                <div class="form-group">
+                    <label for="player-name"><i class="fas fa-user"></i> اسم اللاعب (اختياري)</label>
+                    <input type="text" id="player-name" placeholder="أدخل اسم اللاعب في اللعبة">
+                </div>
+            </div>
+        </section>
+        
+        <!-- ID Section for eFootball -->
+        <section class="id-section" id="efootball-section">
+            <div class="section-title">
+                <h2>ادخل بيانات حساب eFootball</h2>
+            </div>
+            
+            <div class="id-form">
+                <div class="form-group">
+                    <label for="player-email"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                    <input type="email" id="player-email" placeholder="أدخل البريد الإلكتروني لحساب eFootball">
+                </div>
+                
+                <div class="form-group">
+                    <label for="player-password"><i class="fas fa-lock"></i> كلمة المرور</label>
+                    <input type="password" id="player-password" placeholder="أدخل كلمة المرور لحساب eFootball">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Products Section for Free Fire -->
+        <section class="products-section" id="free-fire-products">
+            <div class="section-title">
+                <h2>باقات شحن فري فاير</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">الأكثر مبيعاً</div>
+                    <div class="product-image free-fire-bg">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-diamond"></i> 2400 م.س</h3>
+                        <div class="product-price">2400 ج.س</div>
+                        <p class="product-details">شحن فوري - ضمان استرجاع - دعم فني 24/7</p>
+                        <button class="add-to-cart" data-product="2400 م.س" data-price="2400">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image free-fire-bg">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-diamond"></i> 220 سنة</h3>
+                        <div class="product-price">4800 ج.س</div>
+                        <p class="product-details">عرض محدود - شحن سريع - جودة عالية</p>
+                        <button class="add-to-cart" data-product="220 سنة" data-price="4800">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">عرض خاص</div>
+                    <div class="product-image free-fire-bg">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-diamond"></i> 330 سنة</h3>
+                        <div class="product-price">7200 ج.س</div>
+                        <p class="product-details">تخفيض 20% - شحن فوري - ضمان لمدة 30 يوم</p>
+                        <button class="add-to-cart" data-product="330 سنة" data-price="7200">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image free-fire-bg">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-diamond"></i> عضوية شهرية</h3>
+                        <div class="product-price">17,000 ج.س</div>
+                        <p class="product-details">عرض حصري - مزايا متعددة - تجديد تلقائي</p>
+                        <button class="add-to-cart" data-product="عضوية شهرية" data-price="17000">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Products Section for eFootball -->
+        <section class="products-section" id="efootball-products">
+            <div class="section-title">
+                <h2>باقات شحن eFootball</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">الأكثر مبيعاً</div>
+                    <div class="product-image efootball-bg">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-coins"></i> 500 عملة</h3>
+                        <div class="product-price">2400 ج.س</div>
+                        <p class="product-details">شحن فوري - ضمان استرجاع - دعم فني 24/7</p>
+                        <button class="add-to-cart" data-product="500 عملة" data-price="2400">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image efootball-bg">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-coins"></i> 1000 عملة</h3>
+                        <div class="product-price">4800 ج.س</div>
+                        <p class="product-details">عرض محدود - شحن سريع - جودة عالية</p>
+                        <button class="add-to-cart" data-product="1000 عملة" data-price="4800">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">عرض خاص</div>
+                    <div class="product-image efootball-bg">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-coins"></i> 2500 عملة</h3>
+                        <div class="product-price">7200 ج.س</div>
+                        <p class="product-details">تخفيض 20% - شحن فوري - ضمان لمدة 30 يوم</p>
+                        <button class="add-to-cart" data-product="2500 عملة" data-price="7200">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image efootball-bg">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><i class="fas fa-coins"></i> 5000 عملة</h3>
+                        <div class="product-price">17,000 ج.س</div>
+                        <p class="product-details">عرض حصري - مزايا متعددة - تجديد تلقائي</p>
+                        <button class="add-to-cart" data-product="5000 عملة" data-price="17000">
+                            <i class="fas fa-cart-plus"></i> إضافة إلى السلة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Order Summary -->
+        <section class="order-summary" id="order-summary">
+            <div class="section-title">
+                <h2>ملخص طلبك</h2>
+            </div>
+            
+            <div id="summary-content">
+                <!-- Summary will be added here by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Payment Section -->
+        <section class="payment-section" id="payment-section">
+            <div class="section-title">
+                <h2>طرق الدفع المتاحة</h2>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fas fa-university"></i>
+                    <h3>تحويل بنكي</h3>
+                    <p>البنوك السودانية</p>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>ماي كاشي</h3>
+                    <p>دفع عن طريق الجوال</p>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-wallet"></i>
+                    <h3>محافظ إلكترونية</h3>
+                    <p>زين كاش وفودافون كاش</p>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>بينانس</h3>
+                    <p>دفع بالعملات الرقمية</p>
+                </div>
+            </div>
+            
+            <div class="account-info">
+                <h3 style="color: white; margin-bottom: 20px; text-align: center;">
+                    <i class="fas fa-info-circle"></i> معلومات الحساب
+                </h3>
+                
+                <div class="account-detail">
+                    <span>رقم الحساب البنكي:</span>
+                    <span>1415300</span>
+                </div>
+                
+                <div class="account-detail">
+                    <span>رقم حساب ماي كاشي:</span>
+                    <span>401582098</span>
+                </div>
+                
+                <div class="account-detail">
+                    <span>اسم الحساب:</span>
+                    <span>BELLI Store</span>
+                </div>
+                
+                <div class="account-detail">
+                    <span>البنك:</span>
+                    <span>بنك السودان</span>
+                </div>
+            </div>
+            
+            <div class="whatsapp-note">
+                <i class="fab fa-whatsapp"></i>
+                <p>يرجى إرسال إشعار الدفع عبر واتساب بعد إتمام العملية مع رقم الطلب</p>
+                <p style="font-weight: 700; margin-top: 10px;">واتساب الدعم: 0118545233</p>
+            </div>
+            
+            <!-- إضافة تنبيه حول رفع صورة إشعار التحويلة -->
+            <div class="upload-notice">
+                <p><i class="fas fa-camera"></i> يرجى رفع صورة إشعار التحويلة عند التواصل معنا على واتساب</p>
+            </div>
+        </section>
+        
+        <!-- Complete Button -->
+        <button class="complete-btn" id="complete-btn">
+            <i class="fas fa-check-circle"></i> إتمام عملية الشراء
+        </button>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="support-info">
+                <p><i class="fas fa-headset"></i> خدمة العملاء: 0118545233</p>
+                <p><i class="fab fa-whatsapp"></i> واتساب الدعم: 0118545233</p>
+                <p><i class="fas fa-clock"></i> متاح 24/7</p>
+            </div>
+            
+            <div class="copyright">
+                BELLI Store © 2023 - سرعة، إبداع، ضمان
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Game Selection
+        const gameCards = document.querySelectorAll('.game-card');
+        const freeFireSection = document.getElementById('free-fire-section');
+        const freeFireProducts = document.getElementById('free-fire-products');
+        const efootballSection = document.getElementById('efootball-section');
+        const efootballProducts = document.getElementById('efootball-products');
+        const paymentSection = document.getElementById('payment-section');
+        const orderSummary = document.getElementById('order-summary');
+        
+        let selectedGame = '';
+        let cartItems = [];
+        
+        gameCards.forEach(card => {
+            card.addEventListener('click', function() {
+                gameCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                selectedGame = this.dataset.game;
+                
+                // Hide all sections first
+                freeFireSection.style.display = 'none';
+                freeFireProducts.style.display = 'none';
+                efootballSection.style.display = 'none';
+                efootballProducts.style.display = 'none';
+                paymentSection.style.display = 'none';
+                orderSummary.style.display = 'none';
+                
+                // Show selected game sections
+                if (selectedGame === 'free-fire') {
+                    freeFireSection.style.display = 'block';
+                    freeFireProducts.style.display = 'block';
+                } else if (selectedGame === 'efootball') {
+                    efootballSection.style.display = 'block';
+                    efootballProducts.style.display = 'block';
+                }
+            });
+        });
+        
+        // Add to Cart Functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = this.dataset.product;
+                const productPrice = parseInt(this.dataset.price);
+                
+                // Add to cart
+                cartItems.push({
+                    name: productName,
+                    price: productPrice
+                });
+                
+                // Animation effect
+                this.innerHTML = '<i class="fas fa-check"></i> تمت الإضافة';
+                this.style.background = 'linear-gradient(135deg, #0f9b0f, #00c853)';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-cart-plus"></i> إضافة إلى السلة';
+                    this.style.background = 'var(--gradient)';
+                }, 2000);
+                
+                alert(`تمت إضافة ${productName} إلى سلة التسوق`);
+                
+                // Update order summary
+                updateOrderSummary();
+            });
+        });
+        
+        // Update Order Summary
+        function updateOrderSummary() {
+            if (cartItems.length === 0) {
+                orderSummary.style.display = 'none';
+                paymentSection.style.display = 'none';
+                return;
+            }
+            
+            let total = 0;
+            let summaryHTML = '';
+            
+            cartItems.forEach((item, index) => {
+                summaryHTML += `
+                    <div class="summary-item">
+                        <span class="label">${item.name}</span>
+                        <span class="value">${item.price} ج.س</span>
+                    </div>
+                `;
+                total += item.price;
+            });
+            
+            summaryHTML += `
+                <div class="summary-item summary-total">
+                    <span class="label">المجموع الكلي</span>
+                    <span class="value">${total} ج.س</span>
+                </div>
+            `;
+            
+            document.getElementById('summary-content').innerHTML = summaryHTML;
+            orderSummary.style.display = 'block';
+            paymentSection.style.display = 'block';
+        }
+        
+        // Complete Button
+        const completeBtn = document.getElementById('complete-btn');
+        completeBtn.addEventListener('click', function() {
+            let isValid = true;
+            let gameDetails = '';
+            let gameName = '';
+            
+            if (selectedGame === '') {
+                alert('الرجاء اختيار اللعبة أولاً');
+                return;
+            }
+            
+            if (cartItems.length === 0) {
+                alert('الرجاء إضافة منتج إلى سلة التسوق');
+                return;
+            }
+            
+            if (selectedGame === 'free-fire') {
+                const playerId = document.getElementById('player-id').value;
+                const playerName = document.getElementById('player-name').value;
+                gameName = 'فري فاير';
+                
+                if (!playerId) {
+                    alert('الرجاء إدخال ID الخاص بك في فري فاير');
+                    isValid = false;
+                } else {
+                    gameDetails = `ID اللاعب: ${playerId}`;
+                    if (playerName) {
+                        gameDetails += `\nاسم اللاعب: ${playerName}`;
+                    }
+                }
+            } else if (selectedGame === 'efootball') {
+                const playerEmail = document.getElementById('player-email').value;
+                const playerPassword = document.getElementById('player-password').value;
+                gameName = 'eFootball';
+                
+                if (!playerEmail || !playerPassword) {
+                    alert('الرجاء إدخال البريد الإلكتروني وكلمة المرور لحساب eFootball');
+                    isValid = false;
+                } else {
+                    gameDetails = `البريد الإلكتروني: ${playerEmail}\nكلمة المرور: ${playerPassword}`;
+                }
+            }
+            
+            if (!isValid) return;
+            
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جارٍ معالجة طلبك...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                // إنشاء رسالة واتساب تحتوي على تفاصيل الطلب
+                const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+                const productList = cartItems.map(item => `- ${item.name} (${item.price} ج.س)`).join('\n');
+                
+                const whatsappMessage = `طلب جديد من BELLI Store!\n\nاللعبة: ${gameName}\n${gameDetails}\n\nالمنتجات:\n${productList}\n\nالمجموع: ${total} ج.س\n\nيرجى إرفاق صورة إشعار التحويلة مع هذا الطلب.`;
+                
+                // ترميح الرسالة لرابط واتساب
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappUrl = `https://wa.me/249118545233?text=${encodedMessage}`;
+                
+                // فتح رابط واتساب في نافذة جديدة
+                window.open(whatsappUrl, '_blank');
+                
+                // رسالة تأكيد للمستخدم
+                this.innerHTML = '<i class="fas fa-check-circle"></i> تم إرسال الطلب بنجاح!';
+                this.style.background = 'linear-gradient(135deg, #0f9b0f, #00c853)';
+                
+                // إعادة تعيين النموذج بعد 3 ثواني
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
